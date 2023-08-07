@@ -1,4 +1,4 @@
-# HFSM 2.0.0 - Alpha - for Godot 4.1 stable
+# HFSM 2.0.1 - Alpha - for Godot 4.1 stable
 
 [中文文档](README_zh_cn.md)
 
@@ -51,8 +51,28 @@ I have not time to write a prefect document and create some demos, I can only re
     ```
     But this is not mandatory, if you access them, you should clearify what are you doing.
 
+
+## For C# Users:
+1. You need build project at least onnce to elimitate error in C# scripts in `res://addons/com.daylily_zeleen.hfsm/CSharpWrappers/`.
+2. It is recommended not to use with other langurage scripts.
+3. If you need cross langurages programing, when you access members about `HFSM`, `State`, `Variable`, `Transition`, you should use menbers which has `Native` suffix. For example, a HFSM node with GDScript, and States in this HFSM node, it should use `GetHFSMNative()` instead of `GetHFSM()` to access HFSM node in States, and the `Node` you got from `GetHFSMNative()` can't be casted to `HFSM` in C#. 
+
+
 ## Notices:
 1. Currently only support on windows, both debug and release version (I need some tutorial to build other platforms on windows, I will be very grateful if you provide to me.).
 2. Currently is not stable version, please avoid to use this plugin in release purpose, I can't guarantee that it will work properly.
 3. All apis have possibility to be changed in future.
-4. Welcome to use and give me feedback by opening issues.
+4. Currently, you can't use `ClassDB` singleton in expression of Transition.  
+5. Welcome to use and give me feedback by opening issues.
+
+
+## Change log:
+2023.8.7 - v2.0.1
+1. Temporarily fix the error about `ClassDB`.
+2. Add wrappers of HFSM core classes to improve usability for C# developers.
+3. To fit C# script, do some rename:
+   1. `Variable.get_type()` -> `Variable.get_variable_type()`
+   2. `HFSM.UpdateType` -> `HFSM.HFSMUpdateType`
+4. Add methods:
+   1. `State.get_path()`
+   2. `State.get_state_type()`

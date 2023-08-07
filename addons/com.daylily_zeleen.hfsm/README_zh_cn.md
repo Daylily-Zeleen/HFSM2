@@ -1,10 +1,10 @@
-# HFSM 2.0.0 - Alpha - for Godot 4.1 stable
+# HFSM 2.0.1 - Alpha - for Godot 4.1 stable
 
 [English readme](README.md)
 
 [HFSM](https://github.com/Daylily-Zeleen/HierarchicalFiniteStateMachine)的加强版。
 
-该残酷是编译完成后的二进制文件插件，遵循MIT许可证。
+该仓库是编译完成后的二进制文件插件，遵循MIT许可证。
 目前没有公布源代码的计划。
 
 ## 特性
@@ -51,8 +51,27 @@
     ```
     当然这不是强制要求，如果你确实需要访问他们，请确保你知道你在做什么。
 
+
+## C# 用户须知：
+1. 需要至少一次构建才能消除`res://addons/com.daylily_zeleen.hfsm/CSharpWrappers/`中的脚本错误提示。
+2. 建议不要与其他类型脚本混用。
+3. 如果你需要跨语言编程，在遇到与`HFSM`、`State`、`Variable`,`Transition`相关的成员时,请使用包装类中带有`Native`后缀的成员，例如，HFSM节点使用GDScript脚本,而其中的State为C#脚本，应该使用`GetHFSMNative()`而不是`GetHFSM()`来访问HFSM节点，并且`GetHFSMNative()`得到的`Node`不能转换为C#中的`HFSM`。
+
 ## 注意:
 1. 目前仅支持windos版本，调试和发布版本均支持（我需要一些在windows上编译其他平台的教程，如果您能为我提供我将非常感谢）。
 2. 目前并非稳定岸本，请不要用于发布目的，我不能对可靠性做任何保证。
 3. 所有的Api都有可能在将来被改变。
-4. 欢迎使用并在issue中向我反馈任何bug。
+4. 暂时不能在转换流表达式中使用`ClasDB`单例。
+5. 欢迎使用并在issue中向我反馈任何bug。
+
+
+## 更新记录：
+2023.8.7 - v2.0.1
+1. 暂时修复关于`ClassDB`的错误。
+2. 新增HFSM核心类的C#类包装，方便C#开发者使用。
+3. 为了兼容C#脚本，做出了一下重命名:
+   2. `Variable.get_type()` -> `Variable.get_variable_type()`
+   3. `HFSM.UpdateType` -> `HFSM.HFSMUpdateType`
+4. 新增方法：
+   1. `State.get_path()`
+   2. `State.get_state_type()`

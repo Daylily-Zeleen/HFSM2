@@ -13,3 +13,14 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+
+#
+.vscode/
+.idea/
+
+Demo.csproj
+Demo.sln
+generate_tool.gd
+generator.gd
+Generator.tscn
