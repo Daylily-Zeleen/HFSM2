@@ -21,7 +21,6 @@ internal static partial class HFSMUtils
         return "";
     }
 
-    // n <- y
     internal static T? TryConvert<T>(GodotObject? obj) where T : class, IHFSMClass<T>
     {
         if (obj is null || !obj.IsClass(typeof(T).Name))
