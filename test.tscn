@@ -1,51 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dohaw8hgir7if"]
+[gd_scene load_steps=2 format=3 uid="uid://dohaw8hgir7if"]
 
 [sub_resource type="GDScript" id="GDScript_ail2h"]
 script/source = "extends Control
 
 @export var a  := []
+
 "
-
-[sub_resource type="GDScript" id="GDScript_yai0n"]
-script/source = "extends State
-
-func _initialize() -> void:
-	pass
-
-func _entry() -> void:
-	print(\"entry: \", get_name())
-	pass
-
-func _update(delta: float) -> void:
-	pass
-
-func _physics_update(delta: float) -> void:
-	pass
-
-func _exit() -> void:
-	pass
-"
-
-[sub_resource type="StateConfig" id="StateConfig_r77p2"]
-state_script = SubResource("GDScript_yai0n")
-type = 1
-editor_offset = Vector2(360, 120)
-
-[sub_resource type="StateConfig" id="StateConfig_pn63r"]
-state_name = &"@state"
-editor_offset = Vector2(781, 94)
-
-[sub_resource type="TransitionConfig" id="TransitionConfig_lxs20"]
-from_state_config = SubResource("StateConfig_r77p2")
-to_state_config = SubResource("StateConfig_pn63r")
-
-[sub_resource type="TransitionConfig" id="TransitionConfig_mk6yi"]
-from_state_config = SubResource("StateConfig_pn63r")
-to_state_config = SubResource("StateConfig_r77p2")
-
-[sub_resource type="FSMConfig" id="FSMConfig_3s4cm"]
-state_config_list = Array[StateConfig]([SubResource("StateConfig_r77p2"), SubResource("StateConfig_pn63r")])
-transition_config_list = Array[TransitionConfig]([SubResource("TransitionConfig_lxs20"), SubResource("TransitionConfig_mk6yi")])
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -55,6 +15,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_ail2h")
-
-[node name="HFSM" type="HFSM" parent="."]
-root_fsm_config = SubResource("FSMConfig_3s4cm")

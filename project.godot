@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Demo"
-run/main_scene="res://test.tscn"
-config/features=PackedStringArray("4.1")
+run/main_scene="res://Generator.tscn"
+config/features=PackedStringArray("4.1", "C#")
 config/icon="res://icon.png"
 
 [dotnet]

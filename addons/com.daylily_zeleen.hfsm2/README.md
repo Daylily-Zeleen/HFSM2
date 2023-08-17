@@ -1,4 +1,4 @@
-# HFSM 2.0.1 - Alpha - for Godot 4.1 stable
+# HFSM 2.0.2 - Alpha - Godot 4.1.1 stable or later
 
 [中文文档](README_zh_cn.md)
 
@@ -59,11 +59,10 @@ I have not time to write a prefect document and create some demos, I can only re
 
 
 ## Notices:
-1. Currently only support on windows, both debug and release version (I need some tutorial to build other platforms on windows, I will be very grateful if you provide to me.).
-2. Currently is not stable version, please avoid to use this plugin in release purpose, I can't guarantee that it will work properly.
-3. All apis have possibility to be changed in future.
-4. Currently, you can't use `ClassDB` singleton in expression of Transition.
-5. Welcome to use and give me feedback by opening issues.
+1. Currently is not stable version, please avoid to use this plugin in release purpose, I can't guarantee that it will work properly.
+2. All apis have possibility to be changed in future.
+3. Currently, you can't use `ClassDB` singleton in expression of Transition.
+4. Welcome to use and give me feedback by opening issues.
 
 
 ## Change log:
