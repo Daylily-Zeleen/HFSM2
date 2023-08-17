@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleExecutable</key>
-	<string>hfsm2.macos.template_release</string>
+	<string>libhfsm2.macos.template_release</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.hfsm2.hfsm2</string>
 	<key>CFBundleInfoDictionaryVersion</key>
