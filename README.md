@@ -5,7 +5,7 @@
 A enhance version of [HFSM](https://github.com/Daylily-Zeleen/HierarchicalFiniteStateMachine).
 
 This repository is built binary plugin, and under MIT license.
-There have not plan to public source code currently. 
+There have not plan to public source code currently.
 
 ## Features
 1. Prefect visual editor.
@@ -55,14 +55,14 @@ I have not time to write a prefect document and create some demos, I can only re
 ## For C# Users:
 1. You need build project at least onnce to elimitate error in C# scripts in `res://addons/com.daylily_zeleen.hfsm/CSharpWrappers/`.
 2. It is recommended not to use with other langurage scripts.
-3. If you need cross langurages programing, when you access members about `HFSM`, `State`, `Variable`, `Transition`, you should use menbers which has `Native` suffix. For example, a HFSM node with GDScript, and States in this HFSM node, it should use `GetHFSMNative()` instead of `GetHFSM()` to access HFSM node in States, and the `Node` you got from `GetHFSMNative()` can't be casted to `HFSM` in C#. 
+3. If you need cross langurages programing, when you access members about `HFSM`, `State`, `Variable`, `Transition`, you should use menbers which has `Native` suffix. For example, a HFSM node with GDScript, and States in this HFSM node, it should use `GetHFSMNative()` instead of `GetHFSM()` to access HFSM node in States, and the `Node` you got from `GetHFSMNative()` can't be casted to `HFSM` in C#.
 
 
 ## Notices:
 1. Currently only support on windows, both debug and release version (I need some tutorial to build other platforms on windows, I will be very grateful if you provide to me.).
 2. Currently is not stable version, please avoid to use this plugin in release purpose, I can't guarantee that it will work properly.
 3. All apis have possibility to be changed in future.
-4. Currently, you can't use `ClassDB` singleton in expression of Transition.  
+4. Currently, you can't use `ClassDB` singleton in expression of Transition.
 5. Welcome to use and give me feedback by opening issues.
 
 
