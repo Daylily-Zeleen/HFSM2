@@ -31,15 +31,15 @@ I have not time to write a prefect document and create some demos, I can only re
 8. Currently, GDExtension can't bind unexposed classes, I must to expose all editor classes, please don't use them in your runtime code.
     Dont use these classes, they are unavailable at runtime:
     ```
-    HfsmEditorPlugin
+    HFSMEditorPlugin
     EditorPropertyVariableConfig
     VariableConfigSelector
     StateNode
     FsmEditor
-    HfsmInspectorPlugin
+    HFSMInspectorPlugin
     HFSMEditor
-    HfsmDebuggerPlugin
-    HfsmDebugger
+    HFSMDebuggerPlugin
+    HFSMDebugger
     ```
 9. According to the design, you should not access all `xxxConfig` classes, they are only store the HFSM structure/infomation for constructing `HFSM`.
     ```

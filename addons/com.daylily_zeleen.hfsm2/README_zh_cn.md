@@ -31,15 +31,15 @@
 8. GDExtension暂时无法绑定不希望暴露的类，我必须绑定所有的编辑器类，请不要在你的运行时代码中访问它们（也没有使用他们的必要）。
     不要访问以下类，他们在运行时无法访问:
     ```
-    HfsmEditorPlugin
+    HFSMEditorPlugin
     EditorPropertyVariableConfig
     VariableConfigSelector
     StateNode
     FsmEditor
-    HfsmInspectorPlugin
+    HFSMInspectorPlugin
     HFSMEditor
-    HfsmDebuggerPlugin
-    HfsmDebugger
+    HFSMDebuggerPlugin
+    HFSMDebugger
     ```
 9. 根据设计意图，你不应该访问该插件中名为`xxxConfig`的类，他们用于设计时存储状态机的结构与信息，并用于运行时构建`HFSM`。
     ```
