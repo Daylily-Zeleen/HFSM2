@@ -61,17 +61,5 @@ I have not time to write a prefect document and create some demos, I can only re
 ## Notices:
 1. Currently is not stable version, please avoid to use this plugin in release purpose, I can't guarantee that it will work properly.
 2. All apis have possibility to be changed in future.
-3. Currently, you can't use `ClassDB` singleton in expression of Transition.
+3. Currently, you can't use `ClassDB`, `GDExtensionManager`, `ResourceUID`, `IP` singletonS in expression of Transition.
 4. Welcome to use and give me feedback by opening issues.
-
-
-## Change log:
-2023.8.7 - v2.0.1
-1. Temporarily fix the error about `ClassDB`.
-2. Add wrappers of HFSM core classes to improve usability for C# developers.
-3. To fit C# script, do some rename:
-   1. `Variable.get_type()` -> `Variable.get_variable_type()`
-   2. `HFSM.UpdateType` -> `HFSM.HFSMUpdateType`
-4. Add methods:
-   1. `State.get_path()`
-   2. `State.get_state_type()`
