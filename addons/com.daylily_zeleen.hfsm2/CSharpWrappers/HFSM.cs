@@ -363,7 +363,7 @@ public partial class HFSM : Node, IHFSMClass<HFSM>
 
 	static HFSM()
 	{
-		IHFSMClass<HFSM>.ClassScript = GD.Load<Script>(HFSMUtils.GetScriptPath<HFSM>());
+		HFSMUtils.RequestLoadScript<HFSM>();
 	}
 
 	/// <summary>

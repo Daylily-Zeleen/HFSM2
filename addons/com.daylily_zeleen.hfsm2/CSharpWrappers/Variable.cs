@@ -60,7 +60,7 @@ public partial class Variable : RefCounted, IHFSMClass<Variable>
 
 	static Variable()
 	{
-		IHFSMClass<Variable>.ClassScript = GD.Load<Script>(HFSMUtils.GetScriptPath<Variable>());
+		HFSMUtils.RequestLoadScript<Variable>();
 	}
 
 	/// <summary>

@@ -49,6 +49,36 @@ public partial class State : RefCounted, IHFSMClass<State>
 		set => Set(PropAnimationName, Variant.From(value));
 	}
 
+	private static readonly StringName PropAnimationBlendTime = "animation_blend_time";
+	/// <summary>
+	/// Peoperty animation_blend_time
+	/// </summary>
+	public float AnimationBlendTime
+	{
+		get => Get(PropAnimationBlendTime).As<float>();
+		set => Set(PropAnimationBlendTime, Variant.From(value));
+	}
+
+	private static readonly StringName PropAnimationSpeed = "animation_speed";
+	/// <summary>
+	/// Peoperty animation_speed
+	/// </summary>
+	public float AnimationSpeed
+	{
+		get => Get(PropAnimationSpeed).As<float>();
+		set => Set(PropAnimationSpeed, Variant.From(value));
+	}
+
+	private static readonly StringName PropAnimationReverse = "animation_reverse";
+	/// <summary>
+	/// Peoperty animation_reverse
+	/// </summary>
+	public bool AnimationReverse
+	{
+		get => Get(PropAnimationReverse).As<bool>();
+		set => Set(PropAnimationReverse, Variant.From(value));
+	}
+
 	private static readonly StringName FuncGetName = "get_name";
 	/// <summary>
 	/// Method func get_name() -> StringName
@@ -211,7 +241,7 @@ public partial class State : RefCounted, IHFSMClass<State>
 
 	static State()
 	{
-		IHFSMClass<State>.ClassScript = GD.Load<Script>(HFSMUtils.GetScriptPath<State>());
+		HFSMUtils.RequestLoadScript<State>();
 	}
 
 	/// <summary>

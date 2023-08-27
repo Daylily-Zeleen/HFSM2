@@ -69,4 +69,39 @@ internal static partial class HFSMUtils
     {
         return TryConvertArray<T>(objList.AsGodotArray());
     }
+
+    internal static void RequestLoadScript<T>() where T : class, IHFSMClass<T>
+    {
+        var path = GetScriptPath<T>();
+        ResourceLoader.LoadThreadedRequest(path, "Script", true);
+        LoadScriptThread<T>(path);
+    }
+
+    private static void LoadScriptThread<T>(string path) where T : class, IHFSMClass<T>
+    {
+        switch (ResourceLoader.LoadThreadedGetStatus(path))
+        {
+            case ResourceLoader.ThreadLoadStatus.Failed:
+                {
+                    GD.PrintErr($"Load script \"{path}\" failed.");
+                    return;
+                }
+            case ResourceLoader.ThreadLoadStatus.InvalidResource:
+                {
+                    GD.PrintErr($"\"{path}\" is invalid resource.");
+                    return;
+                }
+            case ResourceLoader.ThreadLoadStatus.Loaded:
+                {
+                    IHFSMClass<T>.ClassScript = (ResourceLoader.LoadThreadedGet(path) as Script)!;
+                    return;
+                }
+            case ResourceLoader.ThreadLoadStatus.InProgress:
+                {
+                    Engine.GetMainLoop().Connect(SceneTree.SignalName.ProcessFrame,
+                        Callable.From(() => LoadScriptThread<T>(path)), (uint)GodotObject.ConnectFlags.OneShot);
+                    return;
+                }
+        }
+    }
 }
