@@ -1,8 +1,13 @@
 namespace Godot;
 
-internal interface IHFSMClass<T>
+internal interface IHFSMClass<T> where T : class, IHFSMClass<T>
 {
-    internal static Script ClassScript = null!;
+    internal static readonly Script ClassScript;
+
+    static IHFSMClass()
+    {
+        ClassScript = HFSMUtils.LoadAndGetScript<T>();
+    }
 }
 
 internal static partial class HFSMUtils
@@ -17,8 +22,13 @@ internal static partial class HFSMUtils
             }
         }
 
-        // TODO:: Exception.
-        return "";
+        throw new System.Exception(
+            $"Type \"{typeof(T).Name}\" is not inherited from \"GodotObject\" and has not \"ScriptPath\" attribute.");
+    }
+
+    internal static Script LoadAndGetScript<T>() where T : class
+    {
+        return GD.Load<Script>(GetScriptPath<T>());
     }
 
     internal static T? TryConvert<T>(GodotObject? obj) where T : class, IHFSMClass<T>
@@ -30,8 +40,9 @@ internal static partial class HFSMUtils
 
         if (obj.GetScript().AsGodotObject() is not Script script)
         {
+            var id = obj.GetInstanceId();
             obj.SetScript(IHFSMClass<T>.ClassScript);
-            return obj as T;
+            return GodotObject.InstanceFromId(id) as T;
         }
         else
         {
@@ -45,8 +56,8 @@ internal static partial class HFSMUtils
                 script = script.GetBaseScript();
             }
 
-            // TODO:: Exception.
-            return null;
+            throw new System.Exception(
+                $"Cast to \"{typeof(T).FullName}\", The script of \"{obj}\" is not inherited from \"{GetScriptPath<T>()}\".");
         }
     }
 
@@ -55,53 +66,23 @@ internal static partial class HFSMUtils
         return TryConvert<T>(obj.AsGodotObject());
     }
 
-    internal static Collections.Array<T?> TryConvertArray<[MustBeVariant] T>(Collections.Array objList) where T : class, IHFSMClass<T>
+    internal static Collections.Array<T?> TryConvertArray<[MustBeVariant] T>(Collections.Array objList)
+        where T : class, IHFSMClass<T>
     {
         var ret = new Collections.Array<T?>();
         foreach (var obj in objList)
         {
             ret.Add(TryConvert<T>(obj));
         }
+
         return ret;
     }
 
-    internal static Collections.Array<T?> TryConvertArray<[MustBeVariant] T>(Variant objList) where T : class, IHFSMClass<T>
+    internal static Collections.Array<T?> TryConvertArray<[MustBeVariant] T>(Variant objList)
+        where T : class, IHFSMClass<T>
     {
         return TryConvertArray<T>(objList.AsGodotArray());
     }
 
-    internal static void RequestLoadScript<T>() where T : class, IHFSMClass<T>
-    {
-        var path = GetScriptPath<T>();
-        ResourceLoader.LoadThreadedRequest(path, "Script", true);
-        LoadScriptThread<T>(path);
-    }
 
-    private static void LoadScriptThread<T>(string path) where T : class, IHFSMClass<T>
-    {
-        switch (ResourceLoader.LoadThreadedGetStatus(path))
-        {
-            case ResourceLoader.ThreadLoadStatus.Failed:
-                {
-                    GD.PrintErr($"Load script \"{path}\" failed.");
-                    return;
-                }
-            case ResourceLoader.ThreadLoadStatus.InvalidResource:
-                {
-                    GD.PrintErr($"\"{path}\" is invalid resource.");
-                    return;
-                }
-            case ResourceLoader.ThreadLoadStatus.Loaded:
-                {
-                    IHFSMClass<T>.ClassScript = (ResourceLoader.LoadThreadedGet(path) as Script)!;
-                    return;
-                }
-            case ResourceLoader.ThreadLoadStatus.InProgress:
-                {
-                    Engine.GetMainLoop().Connect(SceneTree.SignalName.ProcessFrame,
-                        Callable.From(() => LoadScriptThread<T>(path)), (uint)GodotObject.ConnectFlags.OneShot);
-                    return;
-                }
-        }
-    }
 }

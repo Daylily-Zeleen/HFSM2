@@ -172,6 +172,11 @@ public partial class State : RefCounted, IHFSMClass<State>
 	/// </summary>
 	public State()
 	{
+		if (GetClass() != "State")
+		{
+			throw new System.Exception("In C#, You should instantiate a \"State\" through ClassDB and attach this script instead of creating \"Godot.State\"  by \"new()\".");
+		}
+
 		var cbAnimationFinished = new Callable(this, nameof(this.SignalCallbackAnimationFinished));
 		if (!IsConnected(SignalAnimationFinished, cbAnimationFinished))
 		{
@@ -237,11 +242,6 @@ public partial class State : RefCounted, IHFSMClass<State>
 	/// </summary>
 	protected virtual void _Exit()
 	{
-	}
-
-	static State()
-	{
-		HFSMUtils.RequestLoadScript<State>();
 	}
 
 	/// <summary>

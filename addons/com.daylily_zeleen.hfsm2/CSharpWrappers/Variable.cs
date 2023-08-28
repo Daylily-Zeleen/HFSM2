@@ -56,11 +56,11 @@ public partial class Variable : RefCounted, IHFSMClass<Variable>
 	/// </summary>
 	public Variable()
 	{
-	}
+		if (GetClass() != "Variable")
+		{
+			throw new System.Exception("In C#, You should instantiate a \"Variable\" through ClassDB and attach this script instead of creating \"Godot.Variable\"  by \"new()\".");
+		}
 
-	static Variable()
-	{
-		HFSMUtils.RequestLoadScript<Variable>();
 	}
 
 	/// <summary>

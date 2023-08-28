@@ -334,6 +334,11 @@ public partial class HFSM : Node, IHFSMClass<HFSM>
 	/// </summary>
 	public HFSM()
 	{
+		if (GetClass() != "HFSM")
+		{
+			throw new System.Exception("In C#, You should instantiate a \"HFSM\" through ClassDB and attach this script instead of creating \"Godot.HFSM\"  by \"new()\".");
+		}
+
 		var cbUpdated = new Callable(this, nameof(this.SignalCallbackUpdated));
 		if (!IsConnected(SignalUpdated, cbUpdated))
 		{
@@ -359,11 +364,6 @@ public partial class HFSM : Node, IHFSMClass<HFSM>
 		{
 			Connect(SignalExited, cbExited);
 		}
-	}
-
-	static HFSM()
-	{
-		HFSMUtils.RequestLoadScript<HFSM>();
 	}
 
 	/// <summary>
