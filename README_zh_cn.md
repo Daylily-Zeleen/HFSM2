@@ -1,4 +1,4 @@
-# HFSM2 - Alpha - Godot 4.1.1 stable或更新版本
+# HFSM2 - Alpha - Godot 4.1.1 Stable
 
 [English readme](README.md)
 
@@ -66,7 +66,5 @@
 
 ## 注意
 
-1. 目前并非稳定岸本，请不要用于发布目的，我不能对可靠性做任何保证。
-2. 所有的Api都有可能在将来被改变。
-3. 暂时不能在转换流表达式中使用`ClassDB`, `GDScriptLanguageProtocol`, `ClassDB`, `GDExtensionManager`, `ResourceUID`, `IP` 单例。
-4. 欢迎使用并在issue中向我反馈任何bug。
+1. 暂时不能在转换流表达式中使用`ClassDB`, `GDScriptLanguageProtocol`, `ClassDB`, `GDExtensionManager`, `ResourceUID`, `IP` 单例。
+2. 欢迎使用并在issue中向我反馈任何bug。
