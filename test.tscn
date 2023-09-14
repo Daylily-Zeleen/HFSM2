@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dohaw8hgir7if"]
+[gd_scene load_steps=8 format=3 uid="uid://dohaw8hgir7if"]
 
 [sub_resource type="GDScript" id="GDScript_ail2h"]
 script/source = "extends Control
@@ -9,34 +9,25 @@ script/source = "extends Control
 
 [sub_resource type="StateConfig" id="StateConfig_5di8b"]
 type = 1
-editor_offset = Vector2(280, 60)
+editor_offset = Vector2(300, 60)
 
 [sub_resource type="StateConfig" id="StateConfig_363f5"]
 state_name = &"@state"
-editor_offset = Vector2(763, 63)
+editor_offset = Vector2(820, 60)
+
+[sub_resource type="TransitionConfig" id="TransitionConfig_neh1l"]
+from_state_config = SubResource("StateConfig_5di8b")
+to_state_config = SubResource("StateConfig_363f5")
+
+[sub_resource type="TransitionConfig" id="TransitionConfig_viqm8"]
+from_state_config = SubResource("StateConfig_363f5")
+to_state_config = SubResource("StateConfig_5di8b")
 
 [sub_resource type="VariableConfig" id="VariableConfig_d1m4x"]
 variable_name = &"walking"
 type = 3
 default_value = null
 resource_name = "walking: Float"
-
-[sub_resource type="VariableExpressionConfig" id="VariableExpressionConfig_5g10k"]
-variable_config = SubResource("VariableConfig_d1m4x")
-comparator = 0
-variable_as_value = false
-value = 0.0
-
-[sub_resource type="TransitionConfig" id="TransitionConfig_neh1l"]
-from_state_config = SubResource("StateConfig_5di8b")
-to_state_config = SubResource("StateConfig_363f5")
-type = 2
-and_mode = true
-variable_expression_config_list = Array[VariableExpressionConfig]([SubResource("VariableExpressionConfig_5g10k")])
-
-[sub_resource type="TransitionConfig" id="TransitionConfig_viqm8"]
-from_state_config = SubResource("StateConfig_363f5")
-to_state_config = SubResource("StateConfig_5di8b")
 
 [sub_resource type="FSMConfig" id="FSMConfig_e35ka"]
 state_config_list = Array[StateConfig]([SubResource("StateConfig_5di8b"), SubResource("StateConfig_363f5")])
