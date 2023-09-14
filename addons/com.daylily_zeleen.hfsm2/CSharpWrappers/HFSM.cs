@@ -336,30 +336,35 @@ public partial class HFSM : Node, IHFSMClass<HFSM>
 	{
 		if (GetClass() != "HFSM")
 		{
-			throw new System.Exception("In C#, You should instantiate a \"HFSM\" through ClassDB and attach this script instead of creating \"Godot.HFSM\"  by \"new()\".");
+			throw new System.Exception("In C#, You should instantiate a \"HFSM\" through ClassDB and attach this script instead of creating \"Godot.HFSM\" by \"new()\".");
 		}
 
-		var cbUpdated = new Callable(this, nameof(this.SignalCallbackUpdated));
+		var delegateUpdated = SignalCallbackUpdated;
+		var cbUpdated = Callable.From(delegateUpdated);
 		if (!IsConnected(SignalUpdated, cbUpdated))
 		{
 			Connect(SignalUpdated, cbUpdated);
 		}
-		var cbPhysicUpdated = new Callable(this, nameof(this.SignalCallbackPhysicUpdated));
+		var delegatePhysicUpdated = SignalCallbackPhysicUpdated;
+		var cbPhysicUpdated = Callable.From(delegatePhysicUpdated);
 		if (!IsConnected(SignalPhysicUpdated, cbPhysicUpdated))
 		{
 			Connect(SignalPhysicUpdated, cbPhysicUpdated);
 		}
-		var cbTransited = new Callable(this, nameof(this.SignalCallbackTransited));
+		var delegateTransited = SignalCallbackTransited;
+		var cbTransited = Callable.From(delegateTransited);
 		if (!IsConnected(SignalTransited, cbTransited))
 		{
 			Connect(SignalTransited, cbTransited);
 		}
-		var cbEntered = new Callable(this, nameof(this.SignalCallbackEntered));
+		var delegateEntered = SignalCallbackEntered;
+		var cbEntered = Callable.From(delegateEntered);
 		if (!IsConnected(SignalEntered, cbEntered))
 		{
 			Connect(SignalEntered, cbEntered);
 		}
-		var cbExited = new Callable(this, nameof(this.SignalCallbackExited));
+		var delegateExited = SignalCallbackExited;
+		var cbExited = Callable.From(delegateExited);
 		if (!IsConnected(SignalExited, cbExited))
 		{
 			Connect(SignalExited, cbExited);
