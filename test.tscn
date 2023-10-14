@@ -7,36 +7,56 @@ script/source = "extends Control
 
 "
 
+[sub_resource type="GDScript" id="GDScript_083fr"]
+script/source = "extends State
+
+
+func _initialize() -> void:
+	pass
+
+
+func _entry() -> void:
+	print(get_name())
+
+
+func _update(delta: float) -> void:
+	pass
+
+
+func _physics_update(delta: float) -> void:
+	pass
+
+
+func _exit() -> void:
+	pass
+"
+
 [sub_resource type="StateConfig" id="StateConfig_5di8b"]
+state_script = SubResource("GDScript_083fr")
 type = 1
-editor_offset = Vector2(280, 60)
+editor_offset = Vector2(60, 80)
 
 [sub_resource type="StateConfig" id="StateConfig_363f5"]
+state_script = SubResource("GDScript_083fr")
 state_name = &"@state"
 editor_offset = Vector2(763, 63)
+
+[sub_resource type="TransitionConfig" id="TransitionConfig_neh1l"]
+from_state_config = SubResource("StateConfig_5di8b")
+to_state_config = SubResource("StateConfig_363f5")
+type = 1
+expression_text = "Input.is_action_just_pressed(\"ui_accept\")"
+expression_comment = "test"
+
+[sub_resource type="TransitionConfig" id="TransitionConfig_viqm8"]
+from_state_config = SubResource("StateConfig_363f5")
+to_state_config = SubResource("StateConfig_5di8b")
 
 [sub_resource type="VariableConfig" id="VariableConfig_d1m4x"]
 variable_name = &"walking"
 type = 3
 default_value = null
 resource_name = "walking: Float"
-
-[sub_resource type="VariableExpressionConfig" id="VariableExpressionConfig_5g10k"]
-variable_config = SubResource("VariableConfig_d1m4x")
-comparator = 0
-variable_as_value = false
-value = 0.0
-
-[sub_resource type="TransitionConfig" id="TransitionConfig_neh1l"]
-from_state_config = SubResource("StateConfig_5di8b")
-to_state_config = SubResource("StateConfig_363f5")
-type = 2
-and_mode = true
-variable_expression_config_list = Array[VariableExpressionConfig]([SubResource("VariableExpressionConfig_5g10k")])
-
-[sub_resource type="TransitionConfig" id="TransitionConfig_viqm8"]
-from_state_config = SubResource("StateConfig_363f5")
-to_state_config = SubResource("StateConfig_5di8b")
 
 [sub_resource type="FSMConfig" id="FSMConfig_e35ka"]
 state_config_list = Array[StateConfig]([SubResource("StateConfig_5di8b"), SubResource("StateConfig_363f5")])
