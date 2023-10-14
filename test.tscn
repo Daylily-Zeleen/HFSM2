@@ -45,7 +45,7 @@ editor_offset = Vector2(763, 63)
 from_state_config = SubResource("StateConfig_5di8b")
 to_state_config = SubResource("StateConfig_363f5")
 type = 1
-expression_text = "Input.is_action_just_pressed(&\"ui_accept\")"
+expression_text = "Input.is_action_just_pressed(\"ui_accept\")"
 expression_comment = "test"
 
 [sub_resource type="TransitionConfig" id="TransitionConfig_viqm8"]
