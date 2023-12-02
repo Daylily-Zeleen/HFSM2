@@ -1,4 +1,4 @@
-# HFSM2 - Alpha - Godot 4.1.1 stable or later
+# HFSM2 - Alpha - Godot 4.2 stable
 
 [中文文档](README_zh_cn.md)
 
@@ -53,5 +53,5 @@ I have not time to write a prefect document and create some demos, I can only re
 
 1. Currently is not stable version, please avoid to use this plugin in release purpose, I can't guarantee that it will work properly.
 2. All apis have possibility to be changed in future.
-3. Currently, you can't use `ClassDB`, `GDExtensionManager`, `ResourceUID`, `IP` singletonS in expression of Transition.
+3. Currently, you can't use `GDExtensionManager`, `ResourceUID`, `IP` singletonS in expression of Transition.
 4. Welcome to use and give me feedback by opening issues.

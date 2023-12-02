@@ -1,4 +1,4 @@
-# HFSM2 - Alpha - Godot 4.1.1 stable或更新版本
+# HFSM2 - Alpha - Godot 4.2 stable
 
 [English readme](README.md)
 
