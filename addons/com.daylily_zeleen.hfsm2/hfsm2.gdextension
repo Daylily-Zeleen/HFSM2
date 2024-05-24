@@ -1,7 +1,18 @@
+[infomation]
+name = "HFSM2"
+version = "v2.2.0"
+decription = "A powerful Hierarchical Finite State Machine plugin for Godot 4.x"
+author = "忘忧の (Daylily Zeleen)"
+email = "daylily-zeleen@foxmail.com"
+support_link = "https://afdian.net/a/Daylily-Zeleen"
+repo = "https://github.com/Daylily-Zeleen/GD-EOS"
+others = "诚接Godot游戏开发，欢迎邮件联系。/ Receive game development outsourcing, welcome to contact by email."
+
+
 [configuration]
 
 entry_symbol = "hfsm2_library_init"
-compatibility_minimum = 4.1
+compatibility_minimum = 4.3
 
 [libraries]
 
