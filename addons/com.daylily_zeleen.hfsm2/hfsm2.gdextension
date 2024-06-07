@@ -1,6 +1,6 @@
 [infomation]
 name = "HFSM2"
-version = "v2.2.0"
+version = "v2.2.1"
 decription = "A powerful Hierarchical Finite State Machine plugin for Godot 4.x"
 author = "忘忧の (Daylily Zeleen)"
 email = "daylily-zeleen@foxmail.com"
