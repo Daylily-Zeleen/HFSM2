@@ -1,6 +1,6 @@
 [infomation]
 name = "HFSM2"
-version = "v2.2.1"
+version = "v2.2.2"
 decription = "A powerful Hierarchical Finite State Machine plugin for Godot 4.x"
 author = "忘忧の (Daylily Zeleen)"
 email = "daylily-zeleen@foxmail.com"
@@ -13,6 +13,10 @@ others = "诚接Godot游戏开发，欢迎邮件联系。/ Receive game developm
 
 entry_symbol = "hfsm2_library_init"
 compatibility_minimum = 4.3
+
+[icons]
+
+HFSM = "res://addons/com.daylily_zeleen.hfsm2/icon.svg"
 
 [libraries]
 
@@ -28,11 +32,24 @@ linux.debug.arm64 = "bin/libhfsm2.linux.template_debug.arm64.so"
 linux.release.arm64 = "bin/libhfsm2.linux.template_release.arm64.so"
 linux.debug.rv64 = "bin/libhfsm2.linux.template_debug.rv64.so"
 linux.release.rv64 = "bin/libhfsm2.linux.template_release.rv64.so"
-android.debug.x86_64 = "bin/libhfsm2.android.template_debug.x86_64.so"
-android.release.x86_64 = "bin/libhfsm2.android.template_release.x86_64.so"
 android.debug.arm64 = "bin/libhfsm2.android.template_debug.arm64.so"
 android.release.arm64 = "bin/libhfsm2.android.template_release.arm64.so"
+android.debug.x86_64 = "bin/libhfsm2.android.template_debug.x86_64.so"
+android.release.x86_64 = "bin/libhfsm2.android.template_release.x86_64.so"
+android.debug.arm32 = "bin/libhfsm2.android.template_debug.arm32.so"
+android.release.arm32 = "bin/libhfsm2.android.template_release.arm32.so"
+android.debug.x86_32 = "bin/libhfsm2.android.template_debug.x86_32.so"
+android.release.x86_32 = "bin/libhfsm2.android.template_release.x86_32.so"
+ios.debug = "bin/libhfsm2.ios.template_debug.xcframework"
+ios.release = "bin/libhfsm2.ios.template_release.xcframework"
+web.debug.wasm32 = "bin/libhfsm2.web.template_debug.wasm32.wasm"
+web.release.wasm32 = "bin/libhfsm2.web.template_release.wasm32.wasm"
 
-[icons]
 
-HFSM = "res://addons/com.daylily_zeleen.hfsm2/icon.svg"
+[dependencies]
+ios.debug = {
+  "bin/libgodot-cpp.ios.template_debug.xcframework": ""
+}
+ios.release = {
+  "bin/libgodot-cpp.ios.template_release.xcframework": ""
+}
