@@ -16,8 +16,8 @@
 5. 多种转换条件。
 6. 两种开发模式：信号回调与状态脚本.
 7. 能够作为动画状态机使用。
-8. 能够附加GDSCript/CSharpScript来实现状态逻辑。
-9. 能够附加GDSCript/CSharpScript来实现转换流逻辑。
+8. 能够附加GDScript/CSharpScript来实现状态逻辑。
+9. 能够附加GDScript/CSharpScript来实现转换流逻辑。
 
 ## Some usage hints
 
@@ -33,7 +33,7 @@
 7. 你可以通过使用"Debugger"面板的“HFSM”标签页来帮助你进行调试（必须有调试进程才会出现该标签页）。该标签页的左侧是运行中的`HFSM`节点路径，双击选择一个`HFSM`将在右侧显式它的运行情况。
 8. 根据设计意图，你不应该访问该插件中名为`xxxConfig`的类，他们用于设计时存储状态机的结构与信息，并用于运行时构建`HFSM`。
 
-    ```
+    ``` GDScript
     FSMConfig
     StateConfig
     TransitionConfig
@@ -55,3 +55,7 @@
 2. 所有的Api都有可能在将来被改变。
 3. 暂时不能在转换流表达式中使用 `GDExtensionManager`, `ResourceUID`, `IP`, `Time` 单例。
 4. 欢迎使用并在issue中向我反馈任何bug。
+
+## 其他
+
+如果这个插件能帮到你还请考虑为我[充电](https://afdian.com/a/Daylily-Zeleen)以支持我的开源活动。

@@ -196,15 +196,15 @@ public partial class State : RefCounted, IHFSMClass<State>
 	{
 	}
 
-	private void _entry()
+	private void _enter()
 	{
-		_Entry();
+		_Enter();
 	}
 
 	/// <summary>
-	/// Virtual func _entry() -> void
+	/// Virtual func _enter() -> void
 	/// </summary>
-	protected virtual void _Entry()
+	protected virtual void _Enter()
 	{
 	}
 
